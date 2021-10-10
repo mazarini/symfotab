@@ -1,7 +1,4 @@
 {
-    "composer/package-versions-deprecated": {
-        "version": "1.11.99.4"
-    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -95,7 +92,7 @@
         "version": "v4.13.0"
     },
     "psr/cache": {
-        "version": "2.0.0"
+        "version": "3.0.0"
     },
     "psr/container": {
         "version": "1.1.1"
@@ -119,7 +116,7 @@
         ]
     },
     "symfony/cache": {
-        "version": "v5.3.8"
+        "version": "6.0.x-dev"
     },
     "symfony/cache-contracts": {
         "version": "v2.4.0"
@@ -152,13 +149,13 @@
         ]
     },
     "symfony/dependency-injection": {
-        "version": "v5.3.8"
+        "version": "5.4.x-dev"
     },
     "symfony/deprecation-contracts": {
         "version": "v2.4.0"
     },
     "symfony/doctrine-bridge": {
-        "version": "5.4.x-dev"
+        "version": "v5.3.8"
     },
     "symfony/dotenv": {
         "version": "5.4.x-dev"
@@ -231,7 +228,7 @@
         }
     },
     "symfony/monolog-bridge": {
-        "version": "5.4.x-dev"
+        "version": "v5.3.7"
     },
     "symfony/monolog-bundle": {
         "version": "3.7",
@@ -249,10 +246,10 @@
         ]
     },
     "symfony/options-resolver": {
-        "version": "5.4.x-dev"
+        "version": "v5.3.7"
     },
     "symfony/password-hasher": {
-        "version": "5.4.x-dev"
+        "version": "v5.3.8"
     },
     "symfony/polyfill-intl-grapheme": {
         "version": "v1.23.1"
@@ -276,10 +273,10 @@
         "version": "v1.23.0"
     },
     "symfony/property-access": {
-        "version": "5.4.x-dev"
+        "version": "v5.3.8"
     },
     "symfony/property-info": {
-        "version": "5.4.x-dev"
+        "version": "v5.3.8"
     },
     "symfony/proxy-manager-bridge": {
         "version": "5.4.x-dev"
@@ -301,7 +298,7 @@
         "version": "5.4.x-dev"
     },
     "symfony/security-core": {
-        "version": "5.4.x-dev"
+        "version": "v5.3.8"
     },
     "symfony/security-csrf": {
         "version": "5.4.x-dev"
@@ -319,15 +316,15 @@
         "version": "v2.4.0"
     },
     "symfony/twig-bridge": {
-        "version": "5.4.x-dev"
+        "version": "v5.3.7"
     },
     "symfony/twig-bundle": {
-        "version": "5.4",
+        "version": "5.3",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "master",
-            "version": "5.4",
-            "ref": "ba5388319da939fbb8a5ffab45179801a936da0d"
+            "version": "5.3",
+            "ref": "3dd530739a4284e3272274c128dbb7a8140a66f1"
         },
         "files": [
             "config/packages/twig.yaml",
@@ -348,10 +345,10 @@
         ]
     },
     "symfony/var-dumper": {
-        "version": "v5.3.8"
+        "version": "5.4.x-dev"
     },
     "symfony/var-exporter": {
-        "version": "v5.3.8"
+        "version": "6.0.x-dev"
     },
     "symfony/web-profiler-bundle": {
         "version": "3.3",

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity;
+namespace Mazarini\SymfoTabBundle\Entity;
 
-use App\Repository\StabRepository;
+use Mazarini\SymfoTabBundle\Repository\StabRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 

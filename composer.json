@@ -42,11 +42,12 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "Mazarini\\SymfoTabBundle\\": "lib/"
         }
     },
     "autoload-dev": {
         "psr-4": {
+            "App\\": "src/",
             "App\\Tests\\": "tests/"
         }
     },

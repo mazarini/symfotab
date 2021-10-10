@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Form;
+namespace Mazarini\SymfoTabBundle\Form;
 
-use App\Entity\Stab;
+use Mazarini\SymfoTabBundle\Entity\Stab;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;

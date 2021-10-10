@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Controller;
+namespace Mazarini\SymfoTabBundle\Controller;
 
-use App\Entity\Stab;
-use App\Form\StabType;
-use App\Repository\StabRepository;
+use Mazarini\SymfoTabBundle\Entity\Stab;
+use Mazarini\SymfoTabBundle\Form\StabType;
+use Mazarini\SymfoTabBundle\Repository\StabRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,7 +16,7 @@ class StabController extends AbstractController
     #[Route('/', name: 'stab_index', methods: ['GET'])]
     public function index(StabRepository $stabRepository): Response
     {
-        return $this->render('stab/index.html.twig', [
+        return $this->render('@MazariniSymfoTab/stab/index.html.twig', [
             'stabs' => $stabRepository->findAll(),
         ]);
     }
@@ -36,7 +36,7 @@ class StabController extends AbstractController
             return $this->redirectToRoute('stab_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('stab/new.html.twig', [
+        return $this->renderForm('@MazariniSymfoTab/stab/new.html.twig', [
             'stab' => $stab,
             'form' => $form,
         ]);
@@ -45,7 +45,7 @@ class StabController extends AbstractController
     #[Route('/{id}', name: 'stab_show', methods: ['GET'])]
     public function show(Stab $stab): Response
     {
-        return $this->render('stab/show.html.twig', [
+        return $this->render('@MazariniSymfoTab/stab/show.html.twig', [
             'stab' => $stab,
         ]);
     }
@@ -62,7 +62,7 @@ class StabController extends AbstractController
             return $this->redirectToRoute('stab_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('stab/edit.html.twig', [
+        return $this->renderForm('@MazariniSymfoTab/stab/edit.html.twig', [
             'stab' => $stab,
             'form' => $form,
         ]);
