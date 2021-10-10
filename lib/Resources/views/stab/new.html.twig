@@ -1,17 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}
+{% block main_top %}
     New Stab
 {% endblock %}
 
-{% block body %}
-    <h1>
-        Create new Stab
-    </h1>
-
-    {{ include('@MazariniSymfoTab/stab/_form.html.twig') }}
-
-    <a href="{{ path('stab_index') }}">
-        back to list
-    </a>
+{% block main_content %}
+    {% embed "@MazariniSymfoTab/stab/_form.html.twig" with {'form': form, 'id': 0, 'action': 'new' } %}
+        {% block body %}
+            {% embed "@MazariniSymfoTab/stab/_button.html.twig" with {'id': 0, 'action': action } %}
+            {% endembed %}
+        {% endblock %}
+    {% endembed %}
 {% endblock %}

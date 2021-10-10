@@ -1,13 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}
-    Stab index
+{% block main_top %}
+    Table index
 {% endblock %}
 
-{% block body %}
-    <h1>
-        Stab index
-    </h1>
+{% block main_content %}
 
     <table class="table">
         <thead>
@@ -57,10 +54,10 @@
                         {{ stab.updateBy ? stab.createdAt|date('Y-m-d H:i:s') : '' }}
                     </td>
                     <td>
-                        <a href="{{ path('stab_show', {'id': stab.id}) }}">
+                        <a class="btn btn-primary btn-sm" href="{{ path('stab_show', {'id': stab.id}) }}">
                             show
                         </a>
-                        <a href="{{ path('stab_edit', {'id': stab.id}) }}">
+                        <a class="btn btn-primary btn-sm" href="{{ path('stab_edit', {'id': stab.id}) }}">
                             edit
                         </a>
                     </td>
@@ -75,7 +72,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('stab_new') }}">
-        Create new
-    </a>
+    {% embed "@MazariniSymfoTab/stab/_button.html.twig" with {'id': 0, 'action': 'index' } %}
+    {% endembed %}
+
 {% endblock %}

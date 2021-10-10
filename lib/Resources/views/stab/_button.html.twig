@@ -1,0 +1,30 @@
+{% if action in ['index', 'show'] %}
+    <a class="btn btn-primary" href="{{ path('stab_new') }}" role="button">
+        Create
+    </a>
+{% endif %}
+{% if action in ['new', 'edit'] %}
+    <button class="btn btn-primary">
+        Save
+    </button>
+{% endif %}
+{% if action in ['new', 'edit', 'show'] %}
+    <a class="btn btn-primary" href="{{ path('stab_index') }}" role="button">
+        Back
+    </a>
+{% endif %}
+{% if action in ['show'] %}
+    <a class="btn btn-primary" href="{{ path('stab_edit', {'id': id}) }}" role="button">
+        edit
+    </a>
+{% endif %}
+{% if action in ['edit'] %}
+    <a class="btn btn-primary" href="{{ path('stab_show', {'id': id}) }}" role="button">
+        view
+    </a>
+{% endif %}
+{% if action in ['edit','show'] %}
+    <button class="btn btn-primary" onclick='getElementById("stab_delete").submit()'>
+        Delete
+    </button>
+{% endif %}

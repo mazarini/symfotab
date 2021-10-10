@@ -1,4 +1,5 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_widget(form) }}
+{% embed "@MazariniSymfoTab/stab/_button.html.twig" with {'id': id, 'action': action } %}
+{% endembed %}
 {{ form_end(form) }}

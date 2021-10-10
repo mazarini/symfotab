@@ -1,0 +1,52 @@
+<table class="table">
+    <tbody>
+        <tr>
+            <th>
+                Id
+            </th>
+            <td>
+                {{ stab.id }}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                TabName
+            </th>
+            <td>
+                {{ stab.tabName }}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                TabKey
+            </th>
+            <td>
+                {{ stab.tabKey }}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                TabData
+            </th>
+            <td>
+                {{ stab.tabData ? stab.tabData|json_encode : '' }}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                CreatedAt
+            </th>
+            <td>
+                {{ stab.createdAt ? stab.createdAt|date('Y-m-d H:i:s') : '' }}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                UpdateBy
+            </th>
+            <td>
+                {{ stab.updateBy ? stab.updateBy|date('Y-m-d H:i:s') : '' }}
+            </td>
+        </tr>
+    </tbody>
+</table>
