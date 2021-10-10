@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Stab index
+{% endblock %}
+
+{% block body %}
+    <h1>
+        Stab index
+    </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    TabName
+                </th>
+                <th>
+                    TabKey
+                </th>
+                <th>
+                    TabData
+                </th>
+                <th>
+                    CreatedAt
+                </th>
+                <th>
+                    UpdateBy
+                </th>
+                <th>
+                    actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stab in stabs %}
+                <tr>
+                    <td>
+                        {{ stab.id }}
+                    </td>
+                    <td>
+                        {{ stab.tabName }}
+                    </td>
+                    <td>
+                        {{ stab.tabKey }}
+                    </td>
+                    <td>
+                        {{ stab.tabData ? stab.tabData|json_encode : '' }}
+                    </td>
+                    <td>
+                        {{ stab.createdAt ? stab.createdAt|date('Y-m-d H:i:s') : '' }}
+                    </td>
+                    <td>
+                        {{ stab.updateBy ? stab.createdAt|date('Y-m-d H:i:s') : '' }}
+                    </td>
+                    <td>
+                        <a href="{{ path('stab_show', {'id': stab.id}) }}">
+                            show
+                        </a>
+                        <a href="{{ path('stab_edit', {'id': stab.id}) }}">
+                            edit
+                        </a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">
+                        no records found
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('stab_new') }}">
+        Create new
+    </a>
+{% endblock %}

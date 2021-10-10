@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Stab
+{% endblock %}
+
+{% block body %}
+    <h1>
+        Stab
+    </h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <td>
+                    {{ stab.id }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    TabName
+                </th>
+                <td>
+                    {{ stab.tabName }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    TabKey
+                </th>
+                <td>
+                    {{ stab.tabKey }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    TabData
+                </th>
+                <td>
+                    {{ stab.tabData ? stab.tabData|json_encode : '' }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    CreatedAt
+                </th>
+                <td>
+                    {{ stab.createdAt ? stab.createdAt|date('Y-m-d H:i:s') : '' }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    UpdateBy
+                </th>
+                <td>
+                    {{ stab.updateBy ? stab.updateBy|date('Y-m-d H:i:s') : '' }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('stab_index') }}">
+        back to list
+    </a>
+
+    <a href="{{ path('stab_edit', {'id': stab.id}) }}">
+        edit
+    </a>
+
+    {{ include('stab/_delete_form.html.twig') }}
+{% endblock %}
