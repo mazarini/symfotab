@@ -2,25 +2,25 @@
 
 namespace Mazarini\SymfoTabBundle\Repository;
 
-use Mazarini\SymfoTabBundle\Entity\Stab;
+use Mazarini\SymfoTabBundle\Entity\Item;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Stab|null find($id, $lockMode = null, $lockVersion = null)
- * @method Stab|null findOneBy(array $criteria, array $orderBy = null)
- * @method Stab[]    findAll()
- * @method Stab[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Item|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Item|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Item[]    findAll()
+ * @method Item[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class StabRepository extends ServiceEntityRepository
+class ItemRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Stab::class);
+        parent::__construct($registry, Item::class);
     }
 
     // /**
-    //  * @return Stab[] Returns an array of Stab objects
+    //  * @return Item[] Returns an array of Item objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class StabRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Stab
+    public function findOneBySomeField($value): ?Item
     {
         return $this->createQueryBuilder('s')
             ->andWhere('s.exampleField = :val')

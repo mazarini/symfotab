@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block main_top %}
+    New Item
+{% endblock %}
+
+{% block main_content %}
+    {% embed "@MazariniSymfoTab/item/_form.html.twig" with {'form': form, 'id': 0, 'action': 'new' } %}
+        {% block body %}
+            {% embed "@MazariniSymfoTab/item/_button.html.twig" with {'id': 0, 'action': action } %}
+            {% endembed %}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block main_top %}
+    Edit Item
+{% endblock %}
+
+{% block main_content %}
+    {% embed "@MazariniSymfoTab/item/_form.html.twig" with {'form': form, 'id': item.id, 'action': 'edit' } %}
+        {% block body %}
+            {% embed "@MazariniSymfoTab/item/_button.html.twig" with {'id': 0, 'action': action } %}
+            {% endembed %}
+        {% endblock %}
+    {% endembed %}
+    {% include "@MazariniSymfoTab/item/_delete_form.html.twig" %}
+{% endblock %}

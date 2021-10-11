@@ -1,5 +1,5 @@
 {% if action in ['index', 'show'] %}
-    <a class="btn btn-primary" href="{{ path('stab_new') }}" role="button">
+    <a class="btn btn-primary" href="{{ path('item_new') }}" role="button">
         Create
     </a>
 {% endif %}
@@ -9,22 +9,22 @@
     </button>
 {% endif %}
 {% if action in ['new', 'edit', 'show'] %}
-    <a class="btn btn-primary" href="{{ path('stab_index') }}" role="button">
+    <a class="btn btn-primary" href="{{ path('item_index') }}" role="button">
         Back
     </a>
 {% endif %}
 {% if action in ['show'] %}
-    <a class="btn btn-primary" href="{{ path('stab_edit', {'id': id}) }}" role="button">
+    <a class="btn btn-primary" href="{{ path('item_edit', {'id': id}) }}" role="button">
         edit
     </a>
 {% endif %}
 {% if action in ['edit'] %}
-    <a class="btn btn-primary" href="{{ path('stab_show', {'id': id}) }}" role="button">
+    <a class="btn btn-primary" href="{{ path('item_show', {'id': id}) }}" role="button">
         view
     </a>
 {% endif %}
 {% if action in ['edit','show'] %}
-    <button class="btn btn-primary" onclick='getElementById("stab_delete").submit()'>
+    <button class="btn btn-primary" onclick='getElementById("item_delete").submit()'>
         Delete
     </button>
 {% endif %}

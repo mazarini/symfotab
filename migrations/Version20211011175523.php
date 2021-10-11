@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20211010073221 extends AbstractMigration
+final class Version20211011175523 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -24,11 +24,16 @@ final class Version20211010073221 extends AbstractMigration
         , created_at DATETIME NOT NULL --(DC2Type:datetime_immutable)
         , update_by DATETIME NOT NULL --(DC2Type:datetime_immutable)
         )');
+        $this->addSql('DROP TABLE stab');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
+        $this->addSql('CREATE TABLE stab (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, tab_name VARCHAR(8) NOT NULL COLLATE BINARY, tab_key VARCHAR(255) NOT NULL COLLATE BINARY, tab_data CLOB NOT NULL COLLATE BINARY --(DC2Type:json)
+        , created_at DATETIME NOT NULL --(DC2Type:datetime_immutable)
+        , update_by DATETIME NOT NULL --(DC2Type:datetime_immutable)
+        )');
         $this->addSql('DROP TABLE item');
     }
 }

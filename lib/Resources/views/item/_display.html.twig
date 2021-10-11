@@ -5,7 +5,7 @@
                 Id
             </th>
             <td>
-                {{ stab.id }}
+                {{ item.id }}
             </td>
         </tr>
         <tr>
@@ -13,7 +13,7 @@
                 TabName
             </th>
             <td>
-                {{ stab.tabName }}
+                {{ item.tabName }}
             </td>
         </tr>
         <tr>
@@ -21,7 +21,7 @@
                 TabKey
             </th>
             <td>
-                {{ stab.tabKey }}
+                {{ item.tabKey }}
             </td>
         </tr>
         <tr>
@@ -29,7 +29,7 @@
                 TabData
             </th>
             <td>
-                {{ stab.tabData ? stab.tabData|json_encode : '' }}
+                {{ item.tabData ? item.tabData|json_encode : '' }}
             </td>
         </tr>
         <tr>
@@ -37,7 +37,7 @@
                 CreatedAt
             </th>
             <td>
-                {{ stab.createdAt ? stab.createdAt|date('Y-m-d H:i:s') : '' }}
+                {{ item.createdAt ? item.createdAt|date('Y-m-d H:i:s') : '' }}
             </td>
         </tr>
         <tr>
@@ -45,7 +45,7 @@
                 UpdateBy
             </th>
             <td>
-                {{ stab.updateBy ? stab.updateBy|date('Y-m-d H:i:s') : '' }}
+                {{ item.updateBy ? item.updateBy|date('Y-m-d H:i:s') : '' }}
             </td>
         </tr>
     </tbody>

@@ -2,12 +2,12 @@
 
 namespace Mazarini\SymfoTabBundle\Form;
 
-use Mazarini\SymfoTabBundle\Entity\Stab;
+use Mazarini\SymfoTabBundle\Entity\Item;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class StabType extends AbstractType
+class ItemType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -23,7 +23,7 @@ class StabType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Stab::class,
+            'data_class' => Item::class,
         ]);
     }
 }

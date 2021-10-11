@@ -2,21 +2,17 @@
 
 namespace Mazarini\SymfoTabBundle\Entity;
 
-use Mazarini\SymfoTabBundle\Repository\StabRepository;
+use Mazarini\SymfoTabBundle\Repository\ItemRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass=StabRepository::class)
+ * @ORM\Entity(repositoryClass=ItemRepository::class)
  */
-class Stab
+class Item
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+    use EntityTrait;
+    use StampTrait;
 
     /**
      * @ORM\Column(type="string", length=8)
@@ -33,16 +29,6 @@ class Stab
      */
     private $tabData = [];
 
-    /**
-     * @ORM\Column(type="datetime_immutable")
-     */
-    private $createdAt;
-
-    /**
-     * @ORM\Column(type="datetime_immutable")
-     */
-    private $updateBy;
-
     public function getTabData(): string|array
     {
         return $this->tabData;
@@ -55,17 +41,11 @@ class Stab
 
         return $this;
     }
-
     /**
      * ==================================================================================================================================================
      * Default functions
      * ==================================================================================================================================================
      */
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
     public function getTabName(): ?string
     {
         return $this->tabName;
@@ -86,30 +66,6 @@ class Stab
     public function setTabKey(string $tabKey): self
     {
         $this->tabKey = $tabKey;
-
-        return $this;
-    }
-
-    public function getCreatedAt(): ?\DateTimeImmutable
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(\DateTimeImmutable $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    public function getUpdateBy(): ?\DateTimeImmutable
-    {
-        return $this->updateBy;
-    }
-
-    public function setUpdateBy(?\DateTimeImmutable $updateBy): self
-    {
-        $this->updateBy = $updateBy;
 
         return $this;
     }

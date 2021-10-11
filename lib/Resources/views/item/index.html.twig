@@ -33,31 +33,31 @@
             </tr>
         </thead>
         <tbody>
-            {% for stab in stabs %}
+            {% for item in items %}
                 <tr>
                     <td>
-                        {{ stab.id }}
+                        {{ item.id }}
                     </td>
                     <td>
-                        {{ stab.tabName }}
+                        {{ item.tabName }}
                     </td>
                     <td>
-                        {{ stab.tabKey }}
+                        {{ item.tabKey }}
                     </td>
                     <td>
-                        {{ stab.tabData ? stab.tabData|json_encode : '' }}
+                        {{ item.tabData ? item.tabData|json_encode : '' }}
                     </td>
                     <td>
-                        {{ stab.createdAt ? stab.createdAt|date('Y-m-d H:i:s') : '' }}
+                        {{ item.createdAt ? item.createdAt|date('Y-m-d H:i:s') : '' }}
                     </td>
                     <td>
-                        {{ stab.updateBy ? stab.createdAt|date('Y-m-d H:i:s') : '' }}
+                        {{ item.updateBy ? item.createdAt|date('Y-m-d H:i:s') : '' }}
                     </td>
                     <td>
-                        <a class="btn btn-primary btn-sm" href="{{ path('stab_show', {'id': stab.id}) }}">
+                        <a class="btn btn-primary btn-sm" href="{{ path('item_show', {'id': item.id}) }}">
                             show
                         </a>
-                        <a class="btn btn-primary btn-sm" href="{{ path('stab_edit', {'id': stab.id}) }}">
+                        <a class="btn btn-primary btn-sm" href="{{ path('item_edit', {'id': item.id}) }}">
                             edit
                         </a>
                     </td>
@@ -72,7 +72,7 @@
         </tbody>
     </table>
 
-    {% embed "@MazariniSymfoTab/stab/_button.html.twig" with {'id': 0, 'action': 'index' } %}
+    {% embed "@MazariniSymfoTab/item/_button.html.twig" with {'id': 0, 'action': 'index' } %}
     {% endembed %}
 
 {% endblock %}
