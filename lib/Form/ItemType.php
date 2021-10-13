@@ -12,11 +12,8 @@ class ItemType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('tabName')
-            ->add('tabKey')
-            ->add('tabData')
-            ->add('createdAt')
-            ->add('updateBy')
+            ->add('tableName')
+            ->add('tableKey')
         ;
     }
 

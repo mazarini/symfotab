@@ -10,26 +10,26 @@
         </tr>
         <tr>
             <th>
-                TabName
+                TableName
             </th>
             <td>
-                {{ item.tabName }}
+                {{ item.tableName }}
             </td>
         </tr>
         <tr>
             <th>
-                TabKey
+                TableKey
             </th>
             <td>
-                {{ item.tabKey }}
+                {{ item.tableKey }}
             </td>
         </tr>
         <tr>
             <th>
-                TabData
+                TableData
             </th>
             <td>
-                {{ item.tabData ? item.tabData|json_encode : '' }}
+                {{ item.tableData ? item.tableData|json_encode : '' }}
             </td>
         </tr>
         <tr>
@@ -42,10 +42,18 @@
         </tr>
         <tr>
             <th>
-                UpdateBy
+                UpdatedBy
             </th>
             <td>
-                {{ item.updateBy ? item.updateBy|date('Y-m-d H:i:s') : '' }}
+                {{ item.updatedAt ? item.updatedAt|date('Y-m-d H:i:s') : '' }}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                UpdatedBy
+            </th>
+            <td>
+                {{ item.updatedBy }}
             </td>
         </tr>
     </tbody>

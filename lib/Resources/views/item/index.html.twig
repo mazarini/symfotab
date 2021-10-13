@@ -13,19 +13,19 @@
                     Id
                 </th>
                 <th>
-                    TabName
+                    TableName
                 </th>
                 <th>
-                    TabKey
+                    TableKey
                 </th>
                 <th>
-                    TabData
+                    TableData
                 </th>
                 <th>
                     CreatedAt
                 </th>
                 <th>
-                    UpdateBy
+                    UpdatedBy
                 </th>
                 <th>
                     actions
@@ -39,19 +39,13 @@
                         {{ item.id }}
                     </td>
                     <td>
-                        {{ item.tabName }}
+                        {{ item.tableName }}
                     </td>
                     <td>
-                        {{ item.tabKey }}
+                        {{ item.tableKey }}
                     </td>
                     <td>
-                        {{ item.tabData ? item.tabData|json_encode : '' }}
-                    </td>
-                    <td>
-                        {{ item.createdAt ? item.createdAt|date('Y-m-d H:i:s') : '' }}
-                    </td>
-                    <td>
-                        {{ item.updateBy ? item.createdAt|date('Y-m-d H:i:s') : '' }}
+                        {{ item.tableData ? item.tableData|json_encode : '' }}
                     </td>
                     <td>
                         <a class="btn btn-primary btn-sm" href="{{ path('item_show', {'id': item.id}) }}">
@@ -64,7 +58,7 @@
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="7">
+                    <td colspan="5">
                         no records found
                     </td>
                 </tr>

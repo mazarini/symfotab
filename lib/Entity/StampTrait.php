@@ -6,42 +6,75 @@ use Mazarini\SymfoTabBundle\Repository\ItemRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
-/**
- * @ORM\Entity(repositoryClass=ItemRepository::class)
- */
+
 trait StampTrait
 {
     /**
-     * @ORM\Column(type="datetime_immutable")
+     * @ORM\Column(type="datetime")
      */
     private $createdAt;
 
     /**
-     * @ORM\Column(type="datetime_immutable")
+     * @ORM\Column(type="datetime")
      */
-    private $updateBy;
+    private $updatedAt;
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $updatedBy='';
+
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    public function setCreatedAt(\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
 
         return $this;
     }
 
-    public function getUpdateBy(): ?\DateTimeImmutable
+    public function getUpdatedAt(): ?\DateTime
     {
-        return $this->updateBy;
+        return $this->updatedAt;
     }
 
-    public function setUpdateBy(?\DateTimeImmutable $updateBy): self
+    public function setUpdatedAt(?\DateTime $updatedAt): self
     {
-        $this->updateBy = $updateBy;
+        $this->updatedAt = $updatedAt;
 
         return $this;
+    }
+
+    public function getUpdatedBy(): string
+    {
+        return $this->updatedBy;
+    }
+
+    public function setUpdatedBy(string $updatedBy): self
+    {
+        $this->updatedBy = $updatedBy;
+
+        return $this;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setPrePersite()
+    {
+        $this->createdAt = new \DateTime();
+        $this->setPreUpdate();
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function setPreUpdate()
+    {
+        $this->updatedAt = new \DateTime();
+        $this->updatedBy = 'myself';
     }
 }

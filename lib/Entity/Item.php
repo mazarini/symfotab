@@ -8,64 +8,67 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ItemRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
+
 class Item
 {
     use EntityTrait;
     use StampTrait;
+    use DataTrait;
 
     /**
-     * @ORM\Column(type="string", length=8)
+     * @ORM\Column(type="string", length=15)
      */
-    private $tabName;
+    private $tableName;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $tabKey;
+    private $tableKey;
 
     /**
-     * @ORM\Column(type="json")
+     * @ORM\Column(type="integer")
      */
-    private $tabData = [];
+    private $tableOrder;
 
-    public function getTabData(): string|array
-    {
-        return $this->tabData;
-    }
-
-    public function setTabData(string|array $tabData): self
-    {
-       $this->tabData = [];
-//     $this->tabData = $tabData;
-
-        return $this;
-    }
     /**
      * ==================================================================================================================================================
      * Default functions
      * ==================================================================================================================================================
      */
-    public function getTabName(): ?string
+    public function getTableName(): ?string
     {
-        return $this->tabName;
+        return $this->tableName;
     }
 
-    public function setTabName(string $tabName): self
+    public function setTableName(string $tableName): self
     {
-        $this->tabName = $tabName;
+        $this->tableName = $tableName;
 
         return $this;
     }
 
-    public function getTabKey(): ?string
+    public function getTableKey(): ?string
     {
-        return $this->tabKey;
+        return $this->tableKey;
     }
 
-    public function setTabKey(string $tabKey): self
+    public function setTableKey(string $tableKey): self
     {
-        $this->tabKey = $tabKey;
+        $this->tableKey = $tableKey;
+
+        return $this;
+    }
+
+    public function getTableOrder(): ?int
+    {
+        return $this->tableOrder;
+    }
+
+    public function setTableOrder(int $tableOrder): self
+    {
+        $this->tableOrder = $tableOrder;
 
         return $this;
     }

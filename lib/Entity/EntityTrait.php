@@ -6,9 +6,6 @@ use Mazarini\SymfoTabBundle\Repository\ItemRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
-/**
- * @ORM\Entity(repositoryClass=ItemRepository::class)
- */
 trait EntityTrait
 {
     /**
