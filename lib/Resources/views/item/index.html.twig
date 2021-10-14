@@ -1,7 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block main_top %}
-    Table index
+    {% if items.tableName == 'table' %}
+        Available tables
+    {% elseif items.tableName == 'field' %}
+        Fields of table
+        {{ items.tableName }}
+    {% else %}
+        {{ items.table.tableLabel }}
+        index
+    {% endif %}
 {% endblock %}
 
 {% block main_content %}
@@ -9,24 +17,11 @@
     <table class="table">
         <thead>
             <tr>
-                <th>
-                    Id
-                </th>
-                <th>
-                    TableName
-                </th>
-                <th>
-                    TableKey
-                </th>
-                <th>
-                    TableData
-                </th>
-                <th>
-                    CreatedAt
-                </th>
-                <th>
-                    UpdatedBy
-                </th>
+                {% for label in items.fieldsLabel %}
+                    <th>
+                        {{ label }}
+                    </th>
+                {% endfor %}
                 <th>
                     actions
                 </th>
@@ -35,38 +30,30 @@
         <tbody>
             {% for item in items %}
                 <tr>
+                    {% for name in items.fieldsName %}
+                        <td>
+                            {{ item.tableData[name] }}
+                        </td>
+                    {% endfor %}
                     <td>
-                        {{ item.id }}
-                    </td>
-                    <td>
-                        {{ item.tableName }}
-                    </td>
-                    <td>
-                        {{ item.tableKey }}
-                    </td>
-                    <td>
-                        {{ item.tableData ? item.tableData|json_encode : '' }}
-                    </td>
-                    <td>
-                        <a class="btn btn-primary btn-sm" href="{{ path('item_show', {'id': item.id}) }}">
-                            show
+                        <a class="btn btn-primary btn-sm" href="{{ path('item_show', {'tableName': items.tableName, 'id': item.id}) }}">
+                            Show
                         </a>
-                        <a class="btn btn-primary btn-sm" href="{{ path('item_edit', {'id': item.id}) }}">
-                            edit
+                        <a class="btn btn-primary btn-sm" href="{{ path('item_edit', {'tableName': items.tableName, 'id': item.id}) }}">
+                            Edit
                         </a>
                     </td>
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="5">
+                    <td colspan="{{ item.fields.count + 1 }}">
                         no records found
                     </td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
-
-    {% embed "@MazariniSymfoTab/item/_button.html.twig" with {'id': 0, 'action': 'index' } %}
+    {% embed "@MazariniSymfoTab/item/_button.html.twig" with {'action': 'index','tableName': items.tableName,'id': 0 } %}
     {% endembed %}
-
+    {{ dump(items) }}
 {% endblock %}

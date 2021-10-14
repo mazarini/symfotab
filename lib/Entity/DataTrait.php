@@ -27,17 +27,17 @@ trait DataTrait
 
     public function __call(string $function, array $values): mixed {
         $type = substr($function,0,3);
-        $property = lower(substr($function,3));
-
+        $property = strtolower(substr($function,3));
         switch (true) {
-            case (in_array($type,['get','set']) || !isset($this->tableData[$property])):
-                throw new BadMethodCallException(sprintf('Uncaught Error:: Call to undefined method $1::$2()',self::class,$property),0);
+            case (!in_array($type,['get','set']) || !isset($this->tableData[$property])):
+                dump($this->tableData);
+                throw new \BadMethodCallException(sprintf('Uncaught Error:: Call to undefined method %s::%s()',self::class,$function),0);
             case (($type === 'set') && (count($values) === 1)):
                 $this->tableData[$property] = $values[0];
                 return $this;
             case (($type === 'get') && (count($values) === 0)):
                 return $this->tableData[$property];
         }
-        throw new ArgumentCountError(sprintf('Wrong count of arguments for method set$1::$2()',self::class,$property),0);
+        throw new \ArgumentCountError(sprintf('Wrong count of arguments for method %s::%s()',self::class,$function),0);
     }
  }

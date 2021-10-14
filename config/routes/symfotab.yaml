@@ -1,4 +1,4 @@
 controller:
-    prefix: /table
+    prefix: /synfo-table
     type: annotation
     resource: '@MazariniSymfoTabBundle/Controller'
