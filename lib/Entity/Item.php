@@ -8,6 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ItemRepository::class)
+ * @ORM\Table(name="SYMFOTAB")
  * @ORM\HasLifecycleCallbacks()
  */
 
@@ -20,24 +21,24 @@ class Item
     /**
      * @ORM\Column(type="string", length=15)
      */
-    private $tableName;
+    private $tableName='';
+
+    /**
+     * @ORM\Column(type="string", length=15)
+     */
+    private $fieldTable='';
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $tableKey;
+    private $tableKey='';
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $tableOrder;
+    private $tableOrder=0;
 
-    /**
-     * ==================================================================================================================================================
-     * Default functions
-     * ==================================================================================================================================================
-     */
-    public function getTableName(): ?string
+    public function getTableName(): string
     {
         return $this->tableName;
     }
@@ -49,7 +50,19 @@ class Item
         return $this;
     }
 
-    public function getTableKey(): ?string
+    public function getFieldTable(): string
+    {
+        return $this->fieldTable;
+    }
+
+    public function setFieldTable(string $fieldTable): self
+    {
+        $this->fieldTable = $fieldTable;
+
+        return $this;
+    }
+
+    public function getTableKey(): string
     {
         return $this->tableKey;
     }
@@ -61,7 +74,7 @@ class Item
         return $this;
     }
 
-    public function getTableOrder(): ?int
+    public function getTableOrder(): int
     {
         return $this->tableOrder;
     }

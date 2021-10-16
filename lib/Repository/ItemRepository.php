@@ -21,13 +21,16 @@ class ItemRepository extends ServiceEntityRepository
     }
 
     public function getTable(string $tableName): Table {
-        if ($tableName === 'field') {
-            $dataTable = new Table($this->getFields($tableName));
-        } else {
-            $dataTable = new Table($this->findBy(['tableName'=>$tableName]));
-        }
-        $dataTable->setTable($this->findOneBy(['tableName'=>'table','tableKey'=>$tableName]));
-        $dataTable->setFields($this->getFields($tableName));
+        $table = $this->findOneBy(['tableName'=>'table','tableKey'=>$tableName]);
+        dump($table);
+        $fields = $this->findBy(['tableName'=>'field','fieldTable'=>$table->getFieldTable()],['tableName'=>'ASC','tableOrder'=>'ASC','tableKey'=>'ASC']);
+        dump($fields);
+        $datas = $this->findBy(['tableName'=>$tableName,'fieldTable'=>$table->getFieldTable()],['tableName'=>'ASC','tableOrder'=>'ASC','tableKey'=>'ASC']);
+        dump($fields);
+
+        $dataTable = new Table($datas);
+        $dataTable->setTable($table);
+        $dataTable->setFields($fields);
         return $dataTable;
     }
 

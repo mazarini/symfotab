@@ -22,7 +22,7 @@ trait EntityTrait
 
     public function isNew(): bool
     {
-        return $this->id;
+        return $this->id=0;
     }
 
 }
